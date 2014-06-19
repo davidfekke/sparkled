@@ -1,0 +1,40 @@
+extends layout
+
+block content
+	h1= title
+	p Welcome to #{title}
+	p
+		.btn-group
+			button(id='redOn',class='btn btn-danger') Red LED On
+			button(id='redOff',class='btn btn-warning') Red LED Off
+		br
+		br
+		.btn-group
+			button(id='greenOn',class='btn btn-success') Green LED On
+			button(id='greenOff',class='btn btn-info') Green LED Off
+
+block append scripts
+	script.
+		$('#redOn').on('click', function (event) {
+			event.preventDefault();
+			$.getJSON('/redled/on', handleResult);
+			console.log('Red On!');
+		});
+		$('#redOff').on('click', function (event) {
+			event.preventDefault();
+			$.getJSON('/redled/off', handleResult);
+			console.log('Red Off!');
+		});
+		$('#greenOn').on('click', function (event) {
+			event.preventDefault();
+			$.getJSON('/greenled/on', handleResult);
+			console.log('Green On!');
+		});
+		$('#greenOff').on('click', function (event) {
+			event.preventDefault();
+			$.getJSON('/greenled/off', handleResult);
+			console.log('Green Off!');
+		});
+		function handleResult(data) {
+			console.log(data);
+		}
