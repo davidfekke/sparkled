@@ -3,8 +3,8 @@
 // -----------------------------------
 
 // name the pins
-int led1 = D7;
-int led2 = A7;
+int led1 = D6;
+int led2 = A5;
 
 
 // Function prototypes
@@ -52,7 +52,7 @@ int ledControl(String command)
    else return -1;
 
    // write to the appropriate pin
-   if (command.substring(0,2) == "D7")
+   if (command.substring(0,2) == "D6")
    {
         digitalWrite(led1, state);
    } else {
