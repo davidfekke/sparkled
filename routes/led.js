@@ -6,9 +6,9 @@ var https = require('https'),
 	accessToken = process.env.SPARKACCESSTOKEN; //process.env.SPARKACCESSTOKEN
 
 var httpsOptions = {
-	hostname: 'api.spark.io',
+	hostname: 'api.particle.io',
 	port: 443,
-	path: '/v1/devices/' + process.env.ZEDDEVICE + '/led', //process.env.ZEDDEVICE
+	path: '/v1/devices/' + process.env.DFEKKEELECTRON1 + '/led', //process.env.ZEDDEVICE
 	method: 'POST',
 	headers: {
 		'Accept': '*/*',
@@ -49,7 +49,7 @@ function callSparkService(postData, res) {
 exports.redledon = function (req, res) {
 	var post_data = querystring.stringify({
 		'access_token': accessToken,
-		'params': 'D7,HIGH'
+		'params': 'D6,HIGH'
 	});
 	callSparkService(post_data, res);
 };
@@ -57,7 +57,7 @@ exports.redledon = function (req, res) {
 exports.redledoff = function (req, res) {
 	var post_data = querystring.stringify({
 		'access_token': accessToken,
-		'params': 'D7,LOW'
+		'params': 'D6,LOW'
 	});
 	callSparkService(post_data, res);
 };
@@ -65,7 +65,7 @@ exports.redledoff = function (req, res) {
 exports.greenledon = function (req, res) {
 	var post_data = querystring.stringify({
 		'access_token': accessToken,
-		'params': 'A7,HIGH'
+		'params': 'A5,HIGH'
 	});
 	callSparkService(post_data, res);
 };
@@ -73,7 +73,7 @@ exports.greenledon = function (req, res) {
 exports.greenledoff = function (req, res) {
 	var post_data = querystring.stringify({
 		'access_token': accessToken,
-		'params': 'A7,LOW'
+		'params': 'A5,LOW'
 	});
 	callSparkService(post_data, res);
 };
