@@ -8,6 +8,7 @@ block content
 			button(id='redOn',class='btn btn-success') LED On
 			button(id='redOff',class='btn btn-info') LED Off
 		br
+	div(id='result')
 
 block append scripts
 	script.
@@ -33,4 +34,14 @@ block append scripts
 		});
 		function handleResult(data) {
 			console.log(data);
+			if (data.return_value === -1){
+				$('#result').text('No HIGH or LOW setting read from arguments');
+			} else if (data.return_value === 1) {
+				$('#result').text('Led turned on!');
+			} else {
+				$('#result').text('Led turned off!');
+			}
+			if (data.error) {
+				$('#result').text('Error: ' + data.error);
+			}
 		}
